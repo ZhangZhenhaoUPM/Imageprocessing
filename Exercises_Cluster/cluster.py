@@ -44,14 +44,11 @@ def color_clustering(image_path, k=4,attempts =6,stop_conds = (cv2.TERM_CRITERIA
     return labels, centers
 
 
-# Let's open the image
+
 img_path = 'TestImages/TestImages/coffee_grains.jpg'
 img= cv2.imread(img_path) 
-# We need to re-format the data, we currently have three matrices (3 color values BGR) 
+
 pixel_data = np.float32(img.reshape((-1,3)))
-# then perform k-means clustering with random centers
-# we can set accuracy to (i.e.) 90 (epsilon)
-# and set a maximum number of iterations to 50
 
 number_of_clusters = 2
 stop_conds= (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 50, 0.90) 
